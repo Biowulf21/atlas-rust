@@ -1,3 +1,5 @@
+use std::fs::File;
+
 use crate::helpers::file_helpers::config_helper;
 
 pub fn init_app() {
@@ -12,7 +14,17 @@ pub fn init_app() {
         Err(err) => {
             println!("Config file not found. Creating one.");
             let creation_result = config_helper::create_config();
+
+            match creation_result {
+                Ok(_) => {
+                    println!("Successfully created config file. Proceeding.");
+                }
+                Err(err) => {
+                    panic!("Failed to create config file: {}.\n\n Exiting.", err);
+                }
+            }
         }
     };
-    println!("{:?}", finding_config_result);
+
+    print!("{:?}", finding_config_result);
 }
