@@ -12,12 +12,12 @@ pub fn init_app() {
             file;
         }
         Err(err) => {
-            println!("Config file not found. Creating one.");
+            println!("Config file not found.");
             let creation_result = config_helper::create_config();
 
             match creation_result {
-                Ok(_) => {
-                    println!("Successfully created config file. Proceeding.");
+                Ok(message) => {
+                    println!("{}", message);
                 }
                 Err(err) => {
                     panic!("Failed to create config file: {}.\n\n Exiting.", err);
@@ -25,6 +25,4 @@ pub fn init_app() {
             }
         }
     };
-
-    print!("{:?}", finding_config_result);
 }
