@@ -1,7 +1,7 @@
-use atlas_v2::helpers::api::api_helper;
+// use atlas_v2::helpers::api::api_helper;
+use atlas_v2::init::init::init_app;
 
 fn main() {
     println!("Hello, world!");
-    let number_of_students: u8 = api_helper::get_students();
-    print!("{}", number_of_students.to_string());
+    init_app();
 }
