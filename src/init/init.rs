@@ -7,7 +7,7 @@ pub fn init_app() {
 
     let finding_config_result = match contents_or_error {
         Ok(file) => {
-            println!("Found config file. Proceeding.");
+            println!("Found config file. Proceeding.\n");
             println!("{:?}", file);
             file;
         }
@@ -18,6 +18,7 @@ pub fn init_app() {
             match creation_result {
                 Ok(message) => {
                     println!("{}", message);
+                    println!("\nPlease edit the config.toml file and run the program again.")
                 }
                 Err(err) => {
                     panic!("Failed to create config file: {}.\n\n Exiting.", err);

@@ -4,7 +4,7 @@ use std::io::{self, Error, ErrorKind, Read, Write};
 use toml::Value;
 
 pub fn get_config() -> Result<File, io::Error> {
-    println!("Finding config file...");
+    println!("Finding config file...\n");
     let config_file = File::open("config.toml")?;
     return Ok(config_file);
 }
@@ -25,7 +25,7 @@ pub fn create_config() -> Result<String, io::Error> {
             }
         },
         Ok(_) => {
-            println!("Creating config file...");
+            println!("Creating config file...\n");
             let mut toml_obj = toml::map::Map::new();
 
             toml_obj.insert("PRIVATE_KEY".to_string(), Value::String("".to_string()));
@@ -39,7 +39,7 @@ pub fn create_config() -> Result<String, io::Error> {
 
             fs::write("config.toml", toml_string)?;
 
-            return Ok("Successfully created config file.".to_owned());
+            return Ok("Successfully created config file.\n".to_owned());
         }
     }
 }
