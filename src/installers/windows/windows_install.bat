@@ -42,4 +42,5 @@ if %errorlevel% neq 0 (
 )
 
 echo .exe file moved to target directory and desktop shortcut created successfully.
+start "" "<path_to_your_rust_binary>\my_app.exe"
 exit /b 0
