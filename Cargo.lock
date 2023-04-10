@@ -21,7 +21,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "atlas-v2"
+name = "atlas-rust"
 version = "0.1.0"
 dependencies = [
  "csv",
